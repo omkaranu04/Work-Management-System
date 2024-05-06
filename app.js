@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
 // MongoDB connection URL
-let url = 'mongodb+srv://new_user_local_pc:okayhonachahiye@cluster0.mmcw1jd.mongodb.net/WMS?retryWrites=true&w=majority&appName=Cluster0'
+let url = '' // insert your MongoDB Database URL Here
 
 // Connecting to MongoDB database
 mongoose.connect(url)
