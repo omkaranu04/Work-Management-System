@@ -12,6 +12,14 @@ workers within an organization. It encompasses functionalities for user registra
 - [@omkaranu04](https://github.com/omkaranu04)
 
 
+## To Connect to MongoDB Database
+To start with setting up your MongoDB Database, follow the following playlist :
+
+```https://youtube.com/playlist?list=PL4cUxeGkcC9h77dJ-QJlwGlZlTd4ecZOA&si=R3h8jHMaqNyfd8Xo```
+
+After setting up your Database URL paste the link on line number 26 of the 'app.js' file, within the parentheses
+
+
 ## Deployment
 
 To deploy this project run make sure you have latest version of Node.js installed
@@ -46,6 +54,12 @@ or
 npm config set fund false --location=global
 ```
 
+## Sample Database Creation
+To create a simple database, run the following command on another terminal with localhost running
+```bash
+node database_creation.js
+```
+A new 'database_creation.txt' file will be created after the command is run successfully
 
 ## Documentation
 
@@ -54,11 +68,3 @@ The following documents are present in the repository itself :
 * Test Suite
 * Test Plan
 * Presentation
-
-
-## Sample Database Creation
-To create a simple database, run the following command on another terminal with localhost running
-```bash
-node database_creation.js
-```
-A new 'database_creation.txt' file will be created after the command is run successfully
