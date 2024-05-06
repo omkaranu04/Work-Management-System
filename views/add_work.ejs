@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags for character set and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the page -->
+    <title>Add Work</title>
+    <!-- Linking external CSS file -->
+    <link rel="stylesheet" href="/add_work.css">
+</head>
+
+<body>
+    <!-- Header section with title and home link -->
+    <header>
+        <h1>Add Work</h1>
+        <a href="/home">Home</a>
+    </header>
+    <!-- Main container for the form -->
+    <div class="container">
+        <!-- Form for adding work details -->
+        <form action="/works" method="POST">
+            <!-- Container for work details inputs -->
+            <div class="work-details">
+                <!-- Input field for work title -->
+                <div class="Input_style">
+                    <label for="name">Work Title:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <!-- Input field for required number of workers -->
+                <div class="Input_style">
+                    <label for="worker_no">Required Number of Workers:</label>
+                    <input type="number" id="worker_no" name="required_no_of_workers" required min="1">
+                </div>
+                <!-- Input field for duration -->
+                <div class="Input_style">
+                    <label for="Duration">Duration:</label>
+                    <input type="number" id="Duration" name="duration_in_days" required min="1">
+                </div>
+                <!-- Input field for priority -->
+                <div class="Input_style">
+                    <label for="Priority">Priority:</label>
+                    <input type="number" id="Priority" name="priority" required min="1">
+                </div>
+                <!-- Dropdown for work type -->
+                <div class="Input_style">
+                    <label for="WorkType">Work Type:</label>
+                    <select id="WorkType" name="work_type" required>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                    </select>
+                </div>
+                <!-- Input field for start date of the work -->
+                <div class="Input_style">
+                    <label for="StartDate">Start Date:</label>
+                    <input type="date" id="StartDate" name="date" required>
+                </div>
+                <!-- Button to submit the form -->
+                <button type="submit">Add Work</button>
+            </div>
+        </form>
+    </div>
+    <!-- Footer section -->
+    <footer>
+        <!-- Copyright notice with dynamic year -->
+        <p>Copyright &copy;
+            <script> document.write(new Date().getFullYear());</script>
+        </p>
+    </footer>
+</body>
+
+</html>

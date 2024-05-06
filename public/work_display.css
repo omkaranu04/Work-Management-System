@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+header {
+    background-color: #99c2ce;
+    text-align: left;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h1 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+header a {
+    text-decoration: none;
+    color: #34555f;
+    font-weight: bold;
+    transition: text-decoration 0.3s;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+.search-container {
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.search-container label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.search-container input[type="text"],
+.search-container button[type="submit"] {
+    padding: 6px 12px;
+    border: 2px solid #34555f;
+    width: 150px;
+    height: 15px;
+    margin-right: 10px;
+}
+.search-container button[type="submit"]:hover {
+    background-color: #b0d9e4; /* Darken background color on hover */
+}
+
+.search-container button[type="submit"] {
+    padding: 6px 16px;
+    height: 32px;
+}
+
+.search-container::after {
+    content: "";
+    display: block;
+    clear: both;
+    border-bottom: 1px solid #34555f;
+    margin-top: 20px;
+}
+
+.add-button-container {
+    text-align: center;
+}
+
+.add-button {
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    background-color: #7196bd;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    overflow-x: auto;
+    margin-bottom: 10px;
+    z-index: 1;
+}
+
+.add-button:hover {
+    background-color: #308389;
+}
+
+.add-button-container::after{
+    content: "";
+    display: block;
+    clear: both;
+    border-bottom: 1px solid #34555f;
+    margin-top: 20px;
+}
+
+main {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 60px;
+    min-height: calc(100vh-160px);
+}
+
+ul {
+    list-style: none;
+    margin-bottom: 50px;
+}
+
+ul li {
+    margin-bottom: 20px;
+}
+
+ul li strong {
+    display: inline-block;
+    width: 250px;
+}
+
+ul li a {
+    text-decoration: underline;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+footer {
+    background-color: #99c2ce;
+    padding: 10px 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+footer p {
+    margin: 20;
+    visibility: visible;
+    display: block;
+    color: #fff;
+}

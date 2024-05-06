@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags for character set and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the page -->
+    <title>Work Assignment</title>
+    <!-- Linking external CSS file for styling -->
+    <link rel="stylesheet" href="/work_assignment.css">
+</head>
+
+<body>
+    <!-- Header section -->
+    <header>
+        <!-- Heading for the page -->
+        <h1>Work Assignment</h1>
+        <!-- Link to navigate back to home page -->
+        <a href="/home">Home</a>
+    </header>
+    <!-- Container for work assignment form -->
+    <div class="backgroundd">
+        <div class="container">
+            <!-- Form for selecting work type -->
+            <form id="workTypeForm" action="/works/assignment" method="POST">
+                <!-- Dropdown menu to select work type -->
+                <div class="options">
+                    <label for="workType">Select Work Type:</label>
+                    <select id="workType" name="workType">
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                    </select>
+                </div>
+                <br>
+                <!-- Button to submit selected work type -->
+                <button type="submit">Enter</button>
+            </form>
+        </div>
+    </div>
+    <!-- Unordered list to display works dynamically -->
+    <ul id="worksList">
+        <!-- Works will be dynamically added here -->
+    </ul>
+    <!-- Footer section -->
+    <footer>
+        <!-- Copyright information -->
+        <p>Copyright &copy;
+            <script> document.write(new Date().getFullYear());</script>
+        </p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Workers</title>
+    <link rel="stylesheet" href="/worker_display.css">
+</head>
+
+<body>
+    <header>
+        <h1>List of Workers</h1>
+        <a href="/home">Home</a>
+    </header>
+
+    <div class="search-container">
+        <form action="/workers/search" method="GET">
+            <label for="workerId">Search by Worker ID:</label>
+            <div class="search-bar">
+                <input type="number" id="workerId" name="workerId" required>
+                <button type="submit" class="search-button">Search</button>
+            </div>
+        </form>
+        <form action="/workers/search" method="GET">
+            <label for="workerName">Search by Worker Name:</label>
+            <div class="search-bar">
+                <input type="text" id="workerName" name="workerName" required>
+                <button type="submit" class="search-button">Search</button>
+            </div>
+        </form>
+    </div>
+
+    <hr>
+
+    <div class="add-button-container">
+        <a href="/workers/add"><button class="add-button">Add Worker</button></a>
+    </div>
+
+    <ul class="worker-list">
+        <% if (workers.length === 0) { %>
+            <p>No worker with the provided ID</p>
+        <% } else { %>
+            <% workers.forEach(worker => { %>
+                <li class="worker-details">
+                    <div class="detail-item">
+                        <strong>Name:</strong>
+                        <%= worker.name %>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Age:</strong>
+                        <%= worker.age %>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Gender:</strong>
+                        <%= worker.gender %>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Role:</strong>
+                        <%= worker.role %>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Worker ID:</strong>
+                        <%= worker.worker_id %>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Active:</strong>
+                        <%= worker.active ? 'Yes' : 'No' %>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Skill Level:</strong>
+                        <%= worker.skill_level %>
+                    </div>
+                    <div class="button-container">
+                        <form action="/worker/edit/<%= worker._id %>" method="GET">
+                            <input type="hidden" name="_method" value="edit">
+                            <button type="submit" class="button-sm edit-button">Edit</button>
+                        </form>
+                        <% if (worker.active) { %>
+                            <form action="/workers/free/<%= worker._id %>?_method=PUT" method="POST">
+                                <input type="hidden" name="_method" value="PUT">
+                                <button type="submit" class="button-sm free-button">Free</button>
+                            </form>
+                        <% } %>
+                        <form action="/workers/<%= worker._id %>?_method=DELETE" method="POST" onsubmit="return confirm('Are you sure you want to delete this worker?')">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="button-sm delete-button">Delete</button>
+                        </form>
+                    </div>
+                </li>
+            <% }); %>
+        <% } %>
+    </ul>
+
+    <footer>
+        <p>Copyright &copy;<script> document.write(new Date().getFullYear());</script></p>
+    </footer>
+</body>
+
+</html>

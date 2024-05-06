@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags for character set and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the page -->
+    <title>SignUp</title>
+    <!-- Linking external CSS file -->
+    <link rel="stylesheet" href="/login_signup.css">
+</head>
+
+<body>
+    <!-- Container for the signup form -->
+    <div class="form-container">
+        <!-- Heading for the signup form -->
+        <h2>SignUp</h2>
+        <!-- Form for submitting signup details -->
+        <form action="/signup" method="post" id="signupForm">
+            <!-- Input field for username -->
+            <div class="form-group">
+                <label for="login_id">Username:</label>
+                <input type="text" id="login_id" name="login_id" placeholder="Enter your username" required autocomplete="off">
+            </div>
+            <!-- Input field for password -->
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <!-- Button to toggle visibility of password -->
+                <button type="button" id="togglePassword">Show Password</button>
+            </div>
+            <!-- Button to submit the signup form -->
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <!-- JavaScript script to handle form submission and toggle password visibility -->
+    <script>
+        // Add event listener for form submission
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            // Prevent default form submission
+            event.preventDefault();
+            // Submit the form
+            this.submit();
+        });
+
+        // Add event listener for toggling password visibility
+        document.getElementById("togglePassword").addEventListener("click", function() {
+            var passwordField = document.getElementById("password");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                this.textContent = "Hide Password";
+            } else {
+                passwordField.type = "password";
+                this.textContent = "Show Password";
+            }
+        });
+    </script>
+</body>
+
+</html>

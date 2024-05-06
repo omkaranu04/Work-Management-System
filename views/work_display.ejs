@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Works</title>
+    <link rel="stylesheet" href="/work_display.css">
+</head>
+
+<body>
+    <header>
+        <h1>List of Works</h1>
+        <a href="/home">Home</a>
+    </header>
+
+    <form action="/works/search" method="GET">
+        <div class="search-container">
+            <label for="workName">Search by Work Name:</label>
+            <input type="text" id="workName" name="workName" required>
+            <button type="submit">Search</button>
+        </div>
+    </form>
+
+    <div class="add-button-container">
+        <a href="/works/add" class="add-button">Add Work</a>
+    </div>
+
+    <ul>
+        <% if (works.length===0) { %>
+            <p>No works found</p>
+        <% } else { %>
+            <% works.forEach(work=> { %>
+                <li>
+                    <strong>Name:</strong>
+                    <%= work.name %><br>
+                    <strong>Required Number of Workers:</strong>
+                    <%= work.required_no_of_workers %><br>
+                    <strong>Workers Assigned:</strong>
+                    <%= work.workers_assigned %><br>
+                    <strong>Duration in Days:</strong>
+                    <%= work.duration_in_days %><br>
+                    <strong>Priority:</strong>
+                    <%= work.priority %><br>
+                    <strong>Completion Status:</strong>
+                    <%= work.completion_status ? 'Completed' : 'Pending' %><br>
+                    <strong>Work Type:</strong>
+                    <%= work.work_type %><br>
+                    <strong>Start Date:</strong>
+                    <%= new Date(work.date).toLocaleDateString() %><br> <!-- Display the start date -->
+                    <a href="/works/edit/<%= work._id %>">Edit</a>
+                    <a href="/works/<%= work._id %>/workers">View Workers</a>
+                    <hr>
+                </li>
+            <% }); %>
+        <% } %>
+    </ul>
+
+    <footer>
+        <p>Copyright &copy;
+            <script> document.write(new Date().getFullYear());</script>
+        </p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Worker</title>
+    <link rel="stylesheet" href="/worker_editpage.css">
+</head>
+
+<body>
+    <header>
+        <h1>Edit Worker</h1>
+        <a href="/home">Home</a>
+    </header>
+    <form action="/workers/<%= worker._id %>?_method=PUT" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="<%= worker.name %>" required>
+        </div>
+
+        <div>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" value="<%= worker.age %>" required min="1">
+        </div>
+
+        <div>
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="Male" <%= worker.gender === 'Male' ? 'selected' : '' %>>Male</option>
+                <option value="Female" <%= worker.gender === 'Female' ? 'selected' : '' %>>Female</option>
+                <option value="Other" <%= worker.gender === 'Other' ? 'selected' : '' %>>Other</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="role">Role:</label>
+            <select id="role" name="role" required>
+                <option value="">Select Role</option>
+                <option value="A" <%= worker.role === 'A' ? 'selected' : '' %>>A</option>
+                <option value="B" <%= worker.role === 'B' ? 'selected' : '' %>>B</option>
+                <option value="C" <%= worker.role === 'C' ? 'selected' : '' %>>C</option>
+                <option value="D" <%= worker.role === 'D' ? 'selected' : '' %>>D</option>
+            </select>
+        </div>
+
+        <!-- Dropdown for selecting worker's skill level -->
+        <div>
+            <label for="skill_level">Skill Level:</label>
+            <select id="skill_level" name="skill_level" required>
+                <option value="">Select Skill Level</option>
+                <option value="expert" <%= worker.skill_level === 'expert' ? 'selected' : '' %>>Expert</option>
+                <option value="intermediate" <%= worker.skill_level === 'intermediate' ? 'selected' : '' %>>Intermediate</option>
+                <option value="beginner" <%= worker.skill_level === 'beginner' ? 'selected' : '' %>>Beginner</option>
+            </select>
+        </div>
+
+        <div>
+            <button type="submit">Update Worker</button>
+        </div>
+    </form>
+</body>
+
+</html>

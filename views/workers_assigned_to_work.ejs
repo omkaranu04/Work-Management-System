@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags for character set and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the page -->
+    <title>List of Workers Assigned to Work</title>
+    <!-- Linking external CSS file for styling -->
+    <link rel="stylesheet" href="/worker_display.css">
+</head>
+
+<body>
+    <!-- Header section -->
+    <header>
+        <!-- Heading for the page -->
+        <h1>List of Workers Assigned to Work</h1>
+        <!-- Link to navigate back to home page -->
+        <a href="/home">Home</a>
+    </header>
+
+    <!-- Line for visual separation -->
+    <hr>
+
+    <!-- List of Workers Assigned to Work -->
+    <ul class="worker-list">
+        <!-- Condition to check if there are no workers assigned -->
+        <% if (workers.length===0) { %>
+            <!-- Display message if no workers are assigned -->
+            <p>No workers assigned to this work</p>
+            <!-- If there are workers assigned -->
+            <% } else { %>
+                <!-- Iterate through each worker assigned to the work -->
+                <% workers.forEach(worker=> { %>
+                    <!-- Worker details -->
+                    <li class="worker-details">
+                        <!-- Display worker's name -->
+                        <div class="detail-item">
+                            <strong>Name:</strong>
+                            <%= worker.name %>
+                        </div>
+                        <!-- Display worker's age -->
+                        <div class="detail-item">
+                            <strong>Age:</strong>
+                            <%= worker.age %>
+                        </div>
+                        <!-- Display worker's gender -->
+                        <div class="detail-item">
+                            <strong>Gender:</strong>
+                            <%= worker.gender %>
+                        </div>
+                        <!-- Display worker's role -->
+                        <div class="detail-item">
+                            <strong>Role:</strong>
+                            <%= worker.role %>
+                        </div>
+                        <!-- Display worker's ID -->
+                        <div class="detail-item">
+                            <strong>Worker ID:</strong>
+                            <%= worker.worker_id %>
+                        </div>
+                        <!-- Display whether the worker is active or not -->
+                        <div class="detail-item">
+                            <strong>Active:</strong>
+                            <%= worker.active ? 'Yes' : 'No' %>
+                        </div>
+                        <!-- Display worker's skill level -->
+                        <div class="detail-item">
+                            <strong>Skill Level:</strong>
+                            <%= worker.skill_level %>
+                        </div>
+                    </li>
+                    <!-- End of worker details -->
+                    <% }); %>
+                        <!-- End of worker iteration -->
+                        <% } %>
+    </ul>
+    <!-- End of worker list -->
+
+    <!-- Footer section -->
+    <footer>
+        <!-- Copyright information -->
+        <p>Copyright &copy;
+            <script> document.write(new Date().getFullYear());</script>
+        </p>
+    </footer>
+    <!-- End of footer -->
+</body>
+<!-- End of body -->
+
+</html>
+<!-- End of HTML document -->

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Worker</title>
+    <link rel="stylesheet" href="/add_worker.css">
+</head>
+
+<body>
+    <header>
+        <h1>Add Worker</h1>
+        <a href="/home">Home</a>
+    </header>
+    <div class="container">
+        <form action="/workers" method="POST">
+            <div class="work-details">
+                <div class="Input_style">
+                    <span class="Details"> Name</span>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="Input_style">
+                    <span class="Details"> Worker ID</span>
+                    <input type="number" name="worker_id" required min="1">
+                </div>
+                <div class="Input_style">
+                    <span class="Details"> Age</span>
+                    <input type="number" name="age" required min="1">
+                </div>
+                <div class="Input_style">
+                    <label for="role">Role:<br></label>
+                    <select id="role" name="role" required>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                    </select>
+                </div>
+                <div class="Input_style">
+                    <div class="drop-down">
+                        <label for="Gender">Gender</label>
+                        <select id="Gender" name="gender" required>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Input field for worker skill level -->
+                <div class="Input_style">
+                    <span class="Details"> Skill Level</span>
+                    <select name="skill_level" required>
+                        <option value="expert">Expert</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="beginner">Beginner</option>
+                    </select>
+                </div>
+                <div>
+                    <br> <br>
+                    <button>Add Worker</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <footer>
+        <p>Copyright &copy;<script> document.write(new Date().getFullYear());</script></p>
+    </footer>
+</body>
+
+</html>

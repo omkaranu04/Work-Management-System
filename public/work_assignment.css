@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(17, 79, 79);
+}
+
+header {
+    background-color: #99c2ce;
+    text-align: center;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: auto;
+}
+
+header a {
+    text-decoration: none;
+    color: #34555f;
+    font-weight: bold;
+    transition: text-decoration 0.3s;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+.backgroundd {
+    background-color: #b0e0e6;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: #fff;
+    padding: 30px;
+    border: 3px solid #368289;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.options {
+    margin-bottom: 20px;
+}
+
+.options label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.options select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #34555f;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 15px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    background-color: #1d9bb4;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #308389;
+}
+
+footer {
+    text-align: center;
+    background-color: #4d6972;
+    color: #fff;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+footer p {
+    margin: 0;
+    visibility: visible;
+    display: block;
+    color: #fff;
+}

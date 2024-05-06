@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags for character set and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the page -->
+    <title>List of Works</title>
+    <!-- Linking external CSS file for styling -->
+    <link rel="stylesheet" href="/work_display.css">
+</head>
+
+<body>
+    <!-- Header section -->
+    <header>
+        <!-- Heading for the page -->
+        <h1>List of Works</h1>
+        <!-- Link to navigate back to home page -->
+        <a href="/home">Home</a>
+    </header>
+    <!-- Unordered list to display works dynamically -->
+    <ul>
+        <!-- Loop through each work and display its details -->
+        <% works.forEach(work=> { %>
+            <li>
+                <!-- Display work details -->
+                <strong>Name:</strong>
+                <%= work.name %><br>
+                <strong>Required Number of Workers:</strong>
+                <%= work.required_no_of_workers %><br>
+                <strong>Workers Assigned:</strong>
+                <%= work.workers_assigned %><br>
+                <strong>Duration in Days:</strong>
+                <%= work.duration_in_days %><br>
+                <strong>Priority:</strong>
+                <%= work.priority %><br>
+                <strong>Completion Status:</strong>
+                <%= work.completion_status ? 'Completed' : 'Pending' %><br>
+                <strong>Work Type:</strong>
+                <%= work.work_type %><br>
+                <strong>Start Date:</strong>
+                <%= new Date(work.date).toLocaleDateString() %><br> <!-- Format the date to display -->
+                <!-- Button to assign worker to the work -->
+                <button onclick="allocateWorkerAndRedirect('<%= work._id %>', '<%= work.work_type %>')">Assign Worker</button>
+                <!-- Button to manually allocate worker -->
+                <button onclick="redirectToWorkerPage('<%= work.work_type %>','<%=work._id%>')">Allocate Manually</button>
+                <!-- Placeholder for allocation message -->
+                <p id="allocationMessage_<%= work._id %>"></p>
+            </li>
+            <!-- Separator between works -->
+            <hr>
+        <% }); %>
+    </ul>
+
+    <!-- Script section for JavaScript functions -->
+    <script>
+        // Function to assign worker to a work and redirect
+        function allocateWorkerAndRedirect(workId, workType) {
+            fetch(`/allocateWorker/${workId}/${workType}`, {
+                method: 'POST',
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to allocate worker');
+                    }
+                    window.location.href = '/works/assignment'; // Redirect to 'works/assignment' route
+                })
+                .catch(error => {
+                    console.error('Error assigning worker:', error);
+                    // Display error message if allocation fails
+                    const allocationMessage = document.getElementById(`allocationMessage_${workId}`);
+                    allocationMessage.textContent = 'Error assigning worker';
+                });
+        }
+
+        // Function to redirect to worker page for manual allocation
+        function redirectToWorkerPage(workType, workId) {
+            window.location.href = `/workers_display_filtered?role=${workType}&workId=${workId}`;
+        }
+    </script>
+
+    <!-- Footer section -->
+    <footer>
+        <!-- Copyright information -->
+        <p>Copyright &copy;
+            <script> document.write(new Date().getFullYear());</script>
+        </p>
+    </footer>
+</body>
+
+</html>

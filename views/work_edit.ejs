@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags for character set and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the page -->
+    <title>Edit Work</title>
+    <!-- Linking external CSS file for styling -->
+    <link rel="stylesheet" href="/works_editpage.css">
+</head>
+
+<body>
+    <!-- Header section -->
+    <header>
+        <!-- Heading for the page -->
+        <h1>Edit Work</h1>
+        <!-- Link to navigate back to home page -->
+        <a href="/home">Home</a>
+    </header>
+    <!-- Main content container -->
+    <div class="container">
+        <!-- Form to update work details -->
+        <form action="/works/<%= work._id %>?_method=PUT" method="POST">
+            <!-- Hidden input field to send the method override for PUT request -->
+            <input type="hidden" name="_method" value="PUT">
+            <!-- Input fields for editing work details -->
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="<%= work.name %>" required>
+            </div>
+            <div>
+                <label for="duration_in_days">Duration in Days:</label>
+                <input type="number" id="duration_in_days" name="duration_in_days" value="<%= work.duration_in_days %>"
+                    required min="1">
+            </div>
+            <div>
+                <label for="priority">Priority:</label>
+                <input type="number" id="priority" name="priority" value="<%= work.priority %>" required min="1">
+            </div>
+            <!-- Button to submit the form and update work details -->
+            <div class="button-container">
+                <button type="submit">Update Work</button>
+            </div>
+        </form>
+        <!-- Form to mark work as complete and delete it -->
+        <form action="/works/<%= work._id %>?_method=DELETE" method="POST">
+            <!-- Hidden input field to send the method override for DELETE request -->
+            <input type="hidden" name="_method" value="DELETE">
+            <!-- Button to submit the form and mark work as complete and delete it -->
+            <div class="button-container">
+                <button type="submit">Mark as Complete and Delete Work</button>
+            </div>
+        </form>
+    </div>
+    <!-- Footer section -->
+    <footer>
+        <!-- Copyright notice with current year -->
+        <p>Copyright &copy;
+            <script> document.write(new Date().getFullYear());</script>
+        </p>
+    </footer>
+</body>
+
+</html>
